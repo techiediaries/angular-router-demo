@@ -4,9 +4,18 @@
 		Welcome to {{ title }}!
 	</h1>
 
-	<a routerLink="/products">Products</a> 
+
+	<a [routerLink]="[{ outlets: { primary: ['products'],sidebar: ['products'] } }]">
+		Products
+	</a>
+
 </div>
 
 <div>
-	<router-outlet></router-outlet>
+	<div style="float:right">
+		<router-outlet></router-outlet>
 	</div>
+	<div style="float:left">	
+		<router-outlet name="sidebar"></router-outlet>
+	</div>
+</div>
